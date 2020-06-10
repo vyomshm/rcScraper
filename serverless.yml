@@ -1,0 +1,36 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: rcScraper
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: ap-south-1
+  environment:
+    ENV_TYPE: ${file(./serverless.env.yml):${opt:stage}.ENV_TYPE}
+
+functions:
+  app:
+    handler: app.server
+    timeout: 20
+    events:
+      - http: ANY /
+      - http: 
+          path: '{proxy+}'
+          method: any
+          private: false
+
+plugins:
+  - serverless-offline

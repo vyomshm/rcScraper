@@ -1,0 +1,31 @@
+{
+  "name": "rc-scraper-api",
+  "version": "1.0.0",
+  "description": "Serverless",
+  "main": "app.js",
+  "scripts": {
+    "start": "AWS_PROFILE=<> serverless offline start --stage dev --port 5000",
+    "deploy": "AWS_PROFILE=<> serverless deploy --stage dev -v",
+    "prod": "AWS_PROFILE=<> serverless deploy --stage prod -v",
+    "dev-info": "AWS_PROFILE=<> serverless info --stage dev -v",
+    "prod-info": "AWS_PROFILE=<> serverless info --stage prod -v",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vyom Sharma",
+  "license": "MIT",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.6",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "chrome-aws-lambda": "2.0.x",
+    "puppeteer-core": "2.0.x",
+    "utils": "^0.3.1"
+  },
+  "devDependencies": {
+    "puppeteer": "2.0.x",
+    "serverless-offline": "^5.3.3"
+  }
+}
